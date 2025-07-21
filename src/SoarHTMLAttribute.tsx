@@ -1,4 +1,4 @@
-import React, { Component, createElement } from "react";
+import { Component, createElement } from "react";
 import { HTMLAttr } from "./components/HTMLAttr";
 import { SoarHTMLAttributeContainerProps } from "../typings/SoarHTMLAttributeProps";
 

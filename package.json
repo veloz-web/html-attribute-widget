@@ -1,0 +1,78 @@
+{
+  "name": "soarhtmlattribute",
+  "widgetName": "SoarHTMLAttribute",
+  "version": "3.0.0",
+  "description": "Add custom attributes to html elements with context",
+  "copyright": "QVine 2019",
+  "author": "Ethan Steen",
+  "config": {
+    "widgetPath": "./dist/MxTestProject/widgets",
+    "projectPath": "./dist/MxTestProject/",
+    "mendixHost": "http://localhost:8080",
+    "developmentPort": "3000"
+  },
+  "packagePath": "qvine",
+  "files": [
+    "dist",
+    "src",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "start": "concurrently \"pluggable-widgets-tools start:server --open\" \"npm:dev\"",
+    "dev": "pluggable-widgets-tools start:web",
+    "build": "pluggable-widgets-tools build:web",
+    "lint": "pluggable-widgets-tools lint",
+    "lint:fix": "pluggable-widgets-tools lint:fix",
+    "pretest": "npm run lint && npm run build",
+    "test": "pluggable-widgets-tools test:unit --no-cache --ci && npm run test:e2e",
+    "test:unit": "pluggable-widgets-tools test:unit --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:dev": "export DEBUG=true || set DEBUG=true && pluggable-widgets-tools test:e2e:ts",
+    "prerelease": "npm run lint",
+    "release": "pluggable-widgets-tools release:web",
+    "format": "prettier --write ."
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@mendix/pluggable-widgets-tools": "10.21.2",
+    "@playwright/test": "^1.54.1",
+    "@types/big.js": "6.2.2",
+    "@types/chai": "^5.2.2",
+    "@types/jest": "30.0.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.0.15",
+    "@types/selenium-webdriver": "^4.1.28",
+    "chai": "^5.2.1",
+    "concurrently": "^9.2.0",
+    "eslint": "8.57.1",
+    "mocha": "^11.7.1",
+    "prettier": "3.6.2",
+    "selenium-webdriver": "^4.34.0",
+    "shx": "0.4.0",
+    "ts-loader": "9.5.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "4.9.5"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "overrides": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0"
+  },
+  "dependencies": {
+    "classnames": "^2.5.1",
+    "react-hot-loader": "^4.13.1"
+  },
+  "resolutions": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.0",
+    "@types/react-dom": "18.2.0"
+  }
+}

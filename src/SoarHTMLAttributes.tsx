@@ -1,20 +1,18 @@
-import { Component, createElement } from "react";
+import { createElement, ReactElement } from "react";
 
 import { HTMLAttr } from "./components/HTMLAttr";
 import { SoarHTMLAttributeContainerProps } from "../typings/SoarHTMLAttributeProps";
 
-class SoarHTMLAttribute extends Component<SoarHTMLAttributeContainerProps> {
-    render() {
-        return (
-            <HTMLAttr
-                name={this.props.selectorName}
-                withContext={this.props.context}
-                contextValue={this.props.contextAttribute ? this.props.contextAttribute.displayValue : ""}
-                targetType={this.props.elemSelector}
-                targetName={this.props.specificElement}
-            ></HTMLAttr>
-        );
-    }
+export function SoarHTMLAttribute(props: SoarHTMLAttributeContainerProps): ReactElement {
+    return (
+        <HTMLAttr
+            name={props.selectorName}
+            withContext={props.context}
+            contextValue={props.contextAttribute ? props.contextAttribute.displayValue : ""}
+            targetType={props.elemSelector}
+            targetName={props.specificElement}
+        />
+    );
 }
 
 export default SoarHTMLAttribute;

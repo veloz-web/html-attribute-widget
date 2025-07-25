@@ -1,11 +1,11 @@
 import { test, expect } from "@playwright/test";
 import { HomePage } from "./pages/home.page";
 
-const homepage = new HomePage();
+let homepage: HomePage;
 
 test.describe("HTMLAttribute Widget", () => {
     test.beforeEach(async ({ page }) => {
-        homepage.setPage(page);
+        homepage = new HomePage(page);
         await homepage.goto();
         await homepage.waitForWidgetToLoad();
     });

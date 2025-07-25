@@ -26,5 +26,3 @@ export function SoarHTMLAttribute(props: SoarHTMLAttributeContainerProps): React
         ></HTMLAttr>
     );
 }
-
-export default SoarHTMLAttribute;

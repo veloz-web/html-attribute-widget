@@ -1,32 +1,17 @@
-import { test, expect } from "@playwright/test";
-import { HomePage } from "./pages/home.page";
+import homepage from "./pages/home.page";
 
-let homepage: HomePage;
+// const badgeValue = "Badge";
 
-test.describe("HTMLAttribute Widget", () => {
-    test.beforeEach(async ({ page }) => {
-        homepage = new HomePage(page);
-        await homepage.goto();
-        await homepage.waitForWidgetToLoad();
-    });
+describe("MyWidget", () => {
+    it("should render a badge with a caption", () => {
+        homepage.open();
 
-    test("should render the widget with script element", async () => {
-        const scriptElement = homepage.scriptElement;
-        await expect(scriptElement).toBeVisible();
-    });
-
-    test("should add attribute to target element", async () => {
-        const targetElement = homepage.targetElement;
-        await expect(targetElement).toHaveAttribute("data-custom", "value");
-    });
-
-    test("should add attribute to parent element when target type is parent", async () => {
-        const parentElement = homepage.parentElement;
-        await expect(parentElement).toHaveAttribute("data-parent-attr", "parent-value");
-    });
-
-    test("should add attribute to sibling element when target type is sibling", async () => {
-        const siblingElement = homepage.siblingElement;
-        await expect(siblingElement).toHaveAttribute("data-sibling-attr", "sibling-value");
+        /**
+         * Create your tests here. Example:
+         * homepage.badge().waitForVisible();
+         *
+         * const widgetValue = homepage.badge().getText();
+         * expect(widgetValue).toContain(badgeValue);
+         */
     });
 });

@@ -1,34 +1,16 @@
-import { Page, Locator } from '@playwright/test';
+import { browser } from "../typings/WebdriverIO";
 
-export class HomePage {
-    htmlAttributeWidget!: Locator;
-    scriptElement!: Locator;
-    targetElement!: Locator;
-    parentElement!: Locator;
-    siblingElement!: Locator;
+class HomePage {
+    /**
+     * Create your accessors to html elements here. Example:
+     * public get badge() { return $(".widget-badge.badge.mx-name-badge1"); }
+     *
+     * public get label() { return $(".widget-badge.label.mx-name-badge7"); }
+     */
 
-    constructor(private page: Page) {
-        this.htmlAttributeWidget = page.locator('.qvine-soarhtmlattribute');
-        this.scriptElement = page.locator('script[data-testid="html-attr-script"]');
-        this.targetElement = page.locator('#targetElement');
-        this.parentElement = page.locator('.parent-element');
-        this.siblingElement = page.locator('.sibling-element');
-    }
-
-    async goto() {
-        await this.page.goto('/');
-    }
-
-    async waitForWidgetToLoad() {
-        await this.htmlAttributeWidget.waitFor({ state: 'visible' });
-    }
-
-    setPage(page: Page) {
-        this.page = page;
-        this.htmlAttributeWidget = page.locator('.qvine-soarhtmlattribute');
-        this.scriptElement = page.locator('script[data-testid="html-attr-script"]');
-        this.targetElement = page.locator('#targetElement');
-        this.parentElement = page.locator('.parent-element');
-        this.siblingElement = page.locator('.sibling-element');
+    public open(): void {
+        browser.url("/");
     }
 }
+const homepage = new HomePage();
+export default homepage;
